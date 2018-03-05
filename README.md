@@ -78,3 +78,7 @@ Shibboleth Single Logout (SLO) URL structure
 `$wgShibboleth_Logout_Base_Url . Shibboleth.sso/Logout?return= . $wgShibboleth_Logout_Target_Url`
 
 `https://wiki.example.org/Shibboleth.sso/Logout?return=https://wiki.example.org/index.php`
+
+## Known Bugs
+
+The very first time when the user authenticates with Shibboleth, **$wgShibboleth_GroupMap** does not take effect due [T184736](https://phabricator.wikimedia.org/T184736) bug. It requires a relogin (logout then login) to be able to map the given configuration.
