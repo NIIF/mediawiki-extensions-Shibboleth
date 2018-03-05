@@ -1,0 +1,37 @@
+{
+    "name": "Shibboleth",
+    "version": "1.0",
+    "author": [
+        "[https://niif.hu northway]"
+    ],
+    "url": "https://www.github.com",
+    "descriptionmsg": "shibboleth-desc",
+    "license-name": "MIT",
+    "type": "other",
+    "requires": {
+        "extensions": {
+            "PluggableAuth": ">= 5.1"
+        }
+    },
+    "MessagesDirs": {
+        "Shibboleth": [
+            "i18n"
+        ]
+    },
+    "config": {
+        "ShibDisplayName": "displayName",
+        "ShibEmail": "mail",
+        "ShibUsername": "eppn"
+    },
+    "AutoloadClasses": {
+        "Shibboleth": "Shibboleth.class.php"
+    },
+    "Hooks": {
+        "PluggableAuthPopulateGroups": ["Shibboleth::populateGroups"]
+    },
+    "config": {
+        "Shibboleth_GroupMap": null,
+        "PluggableAuth_Class": "Shibboleth"
+    },
+    "manifest_version": 1
+}
