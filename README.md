@@ -14,7 +14,7 @@ Install Shibboleth Apache modul on Debian/Ubuntu linux:
 * `sudo a2enmod shib2`
 * `sudo systemctl restart apache2`
 
-Apache vhost konfig:
+### Apache vhost konfig
 
 ```apache
 <Location /index.php/*:PluggableAuthLogin>
@@ -22,6 +22,21 @@ Apache vhost konfig:
 	ShibRequestSetting applicationId default
 	ShibRequestSetting requireSession true
 	Require valid-user
+</Location>
+```
+
+### Apache vhost konfig FastCGI (FPM)
+
+You should replace `ShibRequestSetting applicationId default` with `ShibUseHeaders On`.
+
+```apache
+<Location /index.php>
+  <If "%{QUERY_STRING} =~ /title=(.+):PluggableAuthLogin/">
+  AuthType shibboleth
+  ShibRequestSetting requireSession true
+  Require valid-user
+  ShibUseHeaders On
+  </If>
 </Location>
 ```
 

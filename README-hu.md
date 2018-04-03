@@ -12,7 +12,7 @@ Kell lennie egy működő Shibboleth SP-nek és be kell kapcsolni a shib2 Apache
 * `sudo a2enmod shib2`
 * `sudo systemctl restart apache2`
 
-Apache vhost konfig:
+### Apache vhost konfig:
 
 ```apache
 <Location /index.php/*:PluggableAuthLogin>
@@ -20,6 +20,20 @@ Apache vhost konfig:
 	ShibRequestSetting applicationId default
 	ShibRequestSetting requireSession true
 	Require valid-user
+</Location>
+```
+### Apache vhost konfig FastCGI (FPM)
+
+A `ShibRequestSetting applicationId default` helyett `ShibUseHeaders On` érdemes használni.
+
+```apache
+<Location /index.php>
+  <If "%{QUERY_STRING} =~ /title=(.+):PluggableAuthLogin/">
+  AuthType shibboleth
+  ShibRequestSetting requireSession true
+  Require valid-user
+  ShibUseHeaders On
+  </If>
 </Location>
 ```
 
