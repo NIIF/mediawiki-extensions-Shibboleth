@@ -9,8 +9,6 @@
     "wg-empty-email": "A wgShibboleth_Email paraméter üres a LocalSettings.php-ban",
     "wg-empty-username": "A wgShibboleth_Username paraméter üres a LocalSettings.php-ban",
     "wg-empty-groupmap-attr": "A wgShibboleth_GroupMap hibás vagy nem található a LocalSettings.php-ban",
-    "shib-attr-empty-realname": "Shibboleth: a valódi név attribútum nem található",
-    "shib-attr-empty-mail": "Shibboleth: e-mail attribútum nem található",
     "shib-attr-empty-username": "Shibboleth: felhasználónév attribútum nem található",
     "shib-attr-empty-groupmap-attr": "Shibboleth: a GroupMap-hez szükséges attribútum nem található vagy hibás"
 }

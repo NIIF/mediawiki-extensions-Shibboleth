@@ -9,8 +9,6 @@
     "wg-empty-email": "The wgShibboleth_Email config is empty in LocalSettings.php",
     "wg-empty-username": "The wgShibboleth_Username config is empty in LocalSettings.php",
     "wg-empty-groupmap-attr": "A wgShibboleth_GroupMap config is empty in LocalSettings.php",
-    "shib-attr-empty-realname": "Shibboleth: real name attribute is not set",
-    "shib-attr-empty-mail": "Shibboleth: e-mail attribute is not set",
     "shib-attr-empty-username": "Shibboleth: username attribute is not set",
     "shib-attr-empty-groupmap-attr": "Shibboleth: cannot find GroupMap attribute"
 }

@@ -102,7 +102,7 @@ class Shibboleth extends PluggableAuth {
 
         // Real name Shibboleth attribute check
         if (empty(filter_input(INPUT_SERVER, $displayName))) {
-            throw new Exception(wfMessage('shib-attr-empty-realname')->plain());
+            return '';
         } else {
             return filter_input(INPUT_SERVER, $displayName);
         }
@@ -125,7 +125,7 @@ class Shibboleth extends PluggableAuth {
 
         // E-mail shibboleth attribute check
         if (empty(filter_input(INPUT_SERVER, $mail))) {
-            throw new Exception(wfMessage('shib-attr-empty-email')->plain());
+            return '';
         } else {
             return filter_input(INPUT_SERVER, $mail);
         }
