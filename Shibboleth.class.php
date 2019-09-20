@@ -30,6 +30,13 @@ class Shibboleth extends PluggableAuth {
             $this->checkGroupMap();
         }
 
+        $user = User::newFromName( $username );
+        $mId = $user->getId();
+
+        if ($mId !== 0) {
+            $id = $mId;
+        }
+
         return true;
     }
 
