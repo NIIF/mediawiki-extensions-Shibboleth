@@ -34,7 +34,7 @@ class Shibboleth extends PluggableAuth {
         $temporaryUserId = $user->getId();
 
         if ($temporaryUserId !== 0) {
-          $id = $mId;
+          $id = $temporaryUserId;
         }
 
         return true;
