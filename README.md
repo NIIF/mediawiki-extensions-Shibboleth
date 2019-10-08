@@ -71,6 +71,7 @@ In addition, the following optional configuration variable is provided:
 Flag | Default | Description
 ---- | ------- | -----------
 $wgShibboleth_GroupMap | null | Mapping from SAML attributes to MediaWiki groups of the form: `$wgShibboleth_GroupMap = array('attr_name' => 'groups','sysop' => 'wiki_admin','bureaucrat' => 'wiki_editor', '...');` No group mapping is performed if $wgSimpleSAMLphp_GroupMap is null.
+$wgShibboleth_RequireGroup | true | Weather missing group information whould invalidate the session or not. Set to `false` to let in users without any group information.
 
 ### Group mapping
 
