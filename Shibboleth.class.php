@@ -172,7 +172,7 @@ class Shibboleth extends PluggableAuth {
 
     private function checkGroupMap($require_group=true) {
 	
-	if (isset($GLOBALS['wgShibboleth_RequireGroup')) {
+	if (isset($GLOBALS['wgShibboleth_RequireGroup'])) {
 	    $require_group = $GLOBALS['wgShibboleth_RequireGroup'];
 	}
 
