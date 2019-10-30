@@ -170,17 +170,22 @@ class Shibboleth extends PluggableAuth {
         }
     }
 
-    private function checkGroupMap() {
+    private function checkGroupMap($require_group=true) {
+	
+	if (isset($GLOBALS['wgShibboleth_RequireGroup'])) {
+	    $require_group = $GLOBALS['wgShibboleth_RequireGroup'];
+	}
 
         $attr_name = $GLOBALS['wgShibboleth_GroupMap']['attr_name'];
 
-        if (empty($attr_name)) {
+        if (empty($attr_name) and $require_group) {
             throw new Exception(wfMessage('wg-empty-groupmap-attr')->plain());
         }
 
         $groups = filter_input(INPUT_SERVER, $attr_name);
+	
 
-        if (empty($groups)) {
+        if (empty($groups) and $require_group) {
             throw new Exception(wfMessage('shib-attr-empty-groupmap-attr')->plain());
         }
 
@@ -195,7 +200,7 @@ class Shibboleth extends PluggableAuth {
         if (empty($base_url)) {
             throw new Exception(wfMessage('shib-attr-empty-logout-base-url')->plain());
         }
-
+$
         $target_url = $GLOBALS['wgShibboleth_Logout_Target_Url'];
 
         if (empty($target_url)) {
