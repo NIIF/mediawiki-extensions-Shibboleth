@@ -6,7 +6,7 @@ Recommended MediaWiki version: **1.29+**
 
 ## Required packages and settings
 
-In order to use Shibboleth Apache module as an authentication method in your wiki, you need have a functional Shibboleth Service Provider (SP).
+In order to use Shibboleth Apache module as an authentication method in your wiki, you need a working Shibboleth Service Provider (SP).
 
 Install Shibboleth Apache modul on Debian/Ubuntu linux:
 
@@ -71,9 +71,11 @@ In addition, the following optional configuration variable is provided:
 Flag | Default | Description
 ---- | ------- | -----------
 $wgShibboleth_GroupMap | null | Mapping from SAML attributes to MediaWiki groups of the form: `$wgShibboleth_GroupMap = array('attr_name' => 'groups','sysop' => 'wiki_admin','bureaucrat' => 'wiki_editor', '...');` No group mapping is performed if $wgSimpleSAMLphp_GroupMap is null.
-$wgShibboleth_RequireGroup | true | Weather missing group information whould invalidate the session or not. Set to `false` to let in users without any group information.
+$wgShibboleth_RequireGroup | true | Weather missing the group SAML attribute, the `attr_name` in the `$wgShibboleth_GroupMap` , will invalidate the session or not. Set to `false` to let in users without any group mapping, in that case users will be mapped to the default unprivileged MediaWiki groups.
 
 ### Group mapping
+
+**IMPORTANT** The extentsion supports only the `sysop` and `bureaucrat` groups.
 
 Use case: your SAML IdP reads groups from LDAP or Database and stores this information inside an attribute of the SAML response. You want to use this to map MediaWiki groups to users belonging to some known groups given by your IdP.
 
